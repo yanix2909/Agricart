@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #1b370c;">
+
+<head>
+  <style>
+    /* Critical: Prevent violet flash - loads before styles.css */
+    html { background: #1b370c; }
+    body { background: transparent !important; }
+  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriCart Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#1b370c" />
+  <style>
+    /* Critical: Prevent violet flash - must be before styles.css loads */
+    html {
+      background: #1b370c;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: transparent; /* Transparent so video shows through */
+    }
+
+    /* Scoped styles to avoid conflicts with existing styles.css */
+    #agricart-login {
+      /* Lighter, clearer glass */
+      --card-bg: rgba(255, 255, 255, 0.15);
+      --green-600: #2f7a3e;
+      --green-500: #3c9a4e;
+      --green-300: #7fc88f;
+      --white: #ffffff;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      --radius-lg: 24px;
+      --radius-sm: 12px;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+        sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      box-sizing: border-box;
+      gap: 24px;
+    }
+
+    /* Video Background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+
+    #agricart-login>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Login Card - Fully Transparent */
+    #agricart-login .login-card {
+      width: 100%;
+      max-width: 500px;
+      /* Slightly wider for side-by-side */
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      display: block;
+      height: auto;
+      position: relative;
+      z-index: 2;
+      padding: 0;
+      /* Remove padding to look clean */
+      text-align: center;
+    }
+
+    /* Eliminated side image styles */
+
+
+    #agricart-login .card-form {
+      background: transparent;
+      padding: 0;
+      display: grid;
+      padding: 0;
+      display: grid;
+      gap: 24px;
+      color: #ffffff;
+    }
+
+    #agricart-login .brand h1 {
+      margin: 0;
+      font-size: 42px;
+      /* Further Enlarged */
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      /* Higher placement (space below) */
+      margin-top: -20px;
+      /* Pull up slightly */
+    }
+
+    #agricart-login .brand p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      /* Larger font */
+      margin-top: 4px;
+    }
+
+    #agricart-login .role-buttons {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      gap: 20px;
+      /* Increased space between buttons */
+      margin: 0 auto;
+      margin-bottom: 24px;
+      /* Slight space with others */
+    }
+
+    #agricart-login .role-btn {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      font-size: 16px;
+      /* Larger font */
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease,
+        color 0.15s ease;
+    }
+
+    #agricart-login .role-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    #agricart-login .role-btn.selected {
+      background: #ffffff;
+      color: #1b370c !important;
+      /* Dark green for visibility on white */
+      border-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #agricart-login .login-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    #agricart-login .login-form.hidden {
+      display: none;
+    }
+
+    #agricart-login .hidden {
+      display: none !important;
+    }
+
+    #agricart-login .form-group {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      /* Label | Input */
+      gap: 16px;
+      align-items: center;
+      position: relative;
+      text-align: left;
+      justify-content: center;
+      /* Ensure grid content centers if width allows */
+      width: 100%;
+      max-width: 380px;
+      /* Constrain form width to ensuring centering */
+      margin: 0 auto;
+      /* horizontal center */
+    }
+
+    #agricart-login .error-text {
+      color: #ff8a80;
+      /* Lighter red for visibility */
+      font-size: 12px;
+      margin-top: 2px;
+      display: none;
+      grid-column: 2;
+      /* Align with input */
+      text-align: left;
+    }
+
+    #agricart-login .form-group.invalid .error-text {
+      display: block;
+    }
+
+    #agricart-login .password-wrap {
+      position: relative;
+    }
+
+    /* Password wrap for icon positioning */
+    #agricart-login .password-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 250px;
+      /* Match input width */
+    }
+
+    #agricart-login .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: 0;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      padding: 0;
+      /* remove padding to tight fit */
+      height: 20px;
+      width: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    #agricart-login .toggle-password:hover {
+      color: #ffffff;
+    }
+
+    #agricart-login label {
+      color: #ffffff;
+      font-size: 16px;
+      /* Larger font */
+      font-weight: 600;
+      margin-bottom: 0;
+      display: block;
+      text-align: right;
+    }
+
+    #agricart-login input[type="email"],
+    #agricart-login input[type="password"],
+    #agricart-login input[type="text"],
+    #agricart-login .password-wrap input {
+      width: 100%;
+      max-width: 250px;
+      /* Minimize it normally */
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      outline: none;
+      text-align: left;
+      transition: all 0.2s ease;
+      font-size: 15px;
+      /* Slightly larger */
+    }
+
+    #agricart-login input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      opacity: 1;
+      text-align: left;
+    }
+
+    #agricart-login input:focus {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+    }
+
+    #agricart-login .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Center everything first */
+      justify-content: center;
+      gap: 24px;
+      margin-top: 12px;
+      width: 100%;
+      max-width: 380px;
+      /* Match form-group width */
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+      /* Reset specific padding */
+    }
+
+    /* Container for forgot link to align it right relative to inputs */
+    #agricart-login .forgot-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 20px;
+      /* Adjust to visually align with input edge */
+    }
+
+    #agricart-login .login-btn {
+      border: 2px solid #ffffff;
+      padding: 12px 0;
+      width: 100%;
+      max-width: 220px;
+      /* Slightly wider to accommodate longer text */
+      border-radius: 8px;
+      /* Round sides like input field */
+      background: transparent;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      /* Button centered */
+    }
+
+    #agricart-login .login-btn:hover {
+      background: #ffffff;
+      color: #1b370c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #agricart-login .login-btn:focus-visible {
+      outline: 3px solid rgba(86, 176, 106, 0.5);
+      outline-offset: 2px;
+    }
+
+    #agricart-login .login-btn[aria-busy="true"] {
+      filter: grayscale(0.2) brightness(0.9);
+      cursor: progress;
+    }
+
+    #agricart-login .login-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    #agricart-login input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: #f5f5f5;
+    }
+
+    #agricart-login .role-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Match OTP input height but make it wider than before */
+    #agricart-login #otpInput {
+      width: 100%;
+      max-width: 210px;
+      /* Wider as requested */
+      text-align: center;
+      /* Center the code text */
+      letter-spacing: 4px;
+      /* Space it out for clarity */
+      font-size: 18px;
+    }
+
+    /* Span instruction text fully */
+    #agricart-login .form-group p {
+      grid-column: 1 / -1;
+      text-align: center;
+      width: 100%;
+      margin-top: 16px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    #agricart-login .forgot-link {
+      color: rgba(255, 255, 255, 0.9) !important;
+      /* Ensure white */
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 0;
+      padding: 6px 10px;
+      /* Visual hit area */
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+
+    #agricart-login .forgot-link:hover {
+      text-decoration: none;
+      background: rgba(0, 0, 0, 0.2);
+      /* Dark transparent hover */
+      color: #ffffff !important;
+    }
+
+    /* Force all links/buttons to be white, preventing default blue */
+    #agricart-login a,
+    #agricart-login button {
+      color: #ffffff !important;
+    }
+
+    #agricart-login .login-btn:hover {
+      background: #ffffff;
+      color: #1b370c !important;
+      /* Green on hover is intentional/okay, just not blue */
+    }
+
+    #agricart-login #loginError {
+      background: #ffebee;
+      color: #d32f2f;
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: none;
+      border: 1px solid #ffcdd2;
+      font-weight: 500;
+    }
+
+    /* Simple fade transitions */
+    @keyframes agricart-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes agricart-fade-out {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+    }
+
+    .fade-in {
+      animation: agricart-fade-in 200ms ease forwards;
+    }
+
+    .fade-out {
+      animation: agricart-fade-out 160ms ease forwards;
+    }
+
+    @media (max-width: 480px) {
+      #agricart-login .login-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #agricart-login .role-buttons {
+        width: 100%;
+      }
+
+      #agricart-login .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #agricart-login .login-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Video -->
+  <video id="bg-video" autoplay loop muted playsinline preload="auto">
+    <source src="web_login_background.mp4" type="video/mp4" />
+  </video>
+
+  <main id="agricart-login">
+    <section class="login-card" role="region" aria-label="Agricart login">
+      <!-- Removed side media -->
+      <div class="card-form">
+        <header class="brand">
+          <h1>Welcome to AgriCart</h1>
+        </header>
+
+        <div class="role-selection">
+          <div class="role-buttons">
+            <button class="role-btn selected" data-role="admin">
+              <i class="fas fa-user-shield"></i>
+              <span>Admin</span>
+            </button>
+            <button class="role-btn" data-role="staff">
+              <i class="fas fa-user-tie"></i>
+              <span>Staff</span>
+            </button>
+          </div>
+        </div>
+
+        <form id="adminLoginForm" class="login-form">
+          <div class="form-group" id="emailGroup">
+            <label for="adminEmail">Email</label>
+            <input type="email" id="adminEmail" placeholder="Enter your email" required autocomplete="username" />
+            <div class="error-text" id="emailError">Email is required</div>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="adminPassword" placeholder="Enter your password" required
+                autocomplete="current-password" />
+            </div>
+            <div class="error-text" id="passwordError">
+              Password is required
+            </div>
+          </div>
+          <div class="actions">
+            <!-- Forgot Link aligned rights -->
+            <div class="forgot-container">
+              <a href="#" class="forgot-link" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+            <!-- Login Button Center -->
+            <button type="submit" class="login-btn">
+              <span>LOGIN</span>
+            </button>
+          </div>
+        </form>
+
+        <div id="forgotPasswordForm" class="login-form hidden" aria-hidden="true">
+          <header class="brand">
+            <h1>Reset Your Password</h1>
+            <p>Enter your email to receive an OTP</p>
+          </header>
+          <div class="form-group" id="resetGroup">
+            <label for="resetEmail">Email</label>
+            <input type="email" id="resetEmail" placeholder="Enter your email" required autocomplete="email" />
+            <div class="error-text" id="resetError">
+              Valid email is required
+            </div>
+          </div>
+          <div class="actions"
+            style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%;">
+            <button type="button" class="login-btn" id="resetSubmitBtn">
+              <span>Send OTP via Email</span>
+            </button>
+            <a href="#" class="forgot-link" id="backToLoginLink"
+              style="text-align: center; margin-top: 8px; margin-right: 0;">Back to
+              Login</a>
+          </div>
+        </div>
+
+        <div id="otpVerificationForm" class="login-form hidden" aria-hidden="true">
+          <header class="brand">
+            <h1>Verify OTP</h1>
+          </header>
+          <div class="form-group" id="otpGroup">
+            <label for="otpInput">OTP Code</label>
+            <input type="text" id="otpInput" placeholder="Enter the token from your email" required autocomplete="off"
+              maxlength="200" />
+            <div class="error-text" id="otpError" style="display: none"></div>
+            <p>
+              Check your email and enter the token code you received.
+            </p>
+          </div>
+          <div class="actions"
+            style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%;">
+            <button type="button" class="login-btn" id="verifyOtpBtn">
+              <span>Verify OTP</span>
+            </button>
+            <a href="#" class="forgot-link" id="resendOtpLink"
+              style="text-align: center; margin-top: 8px; margin-right: 0;">Resend
+              OTP</a>
+            <a href="#" class="forgot-link" id="backToForgotLink" style="text-align: center; margin-right: 0;">Back</a>
+          </div>
+        </div>
+
+        <div id="changePasswordForm" class="login-form hidden" aria-hidden="true">
+          <header class="brand">
+            <h1>Change Password</h1>
+            <p>Enter your new password</p>
+          </header>
+          <div class="form-group" id="newPasswordGroup">
+            <label for="newPassword">New Password</label>
+            <div class="password-wrap">
+              <input type="password" id="newPassword" placeholder="Enter new password" required
+                autocomplete="new-password" />
+            </div>
+            <div class="error-text" id="newPasswordError">
+              Password is required
+            </div>
+          </div>
+          <div class="form-group" id="confirmPasswordGroup">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-wrap">
+              <input type="password" id="confirmPassword" placeholder="Confirm new password" required
+                autocomplete="new-password" />
+            </div>
+            <div class="error-text" id="confirmPasswordError">
+              Passwords do not match
+            </div>
+          </div>
+          <div class="actions"
+            style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%;">
+            <button type="button" class="login-btn" id="changePasswordBtn">
+              <span>Change Password</span>
+            </button>
+            <a href="#" class="forgot-link" id="backToOtpLink"
+              style="text-align: center; margin-top: 8px; margin-right: 0;">Back</a>
+          </div>
+        </div>
+
+        <div id="resetSuccess" class="login-form hidden" aria-hidden="true">
+          <header class="brand">
+            <h1>Password Changed</h1>
+            <p>Your password has been successfully changed.</p>
+          </header>
+          <div class="actions">
+            <button type="button" class="login-btn" id="backToLoginBtn">
+              Back to Login
+            </button>
+          </div>
+        </div>
+
+        <div id="loginError" class="error-message"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        color: rgba(255, 255, 255, 0.7); 
+        font-style: italic; 
+        text-align: center; 
+        font-size: 13px; 
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        line-height: 1.5;
+        z-index: 10;
+        pointer-events: none;
+      ">
+      <div style="margin-bottom: 8px;">
+        <span>Email: agricartcalcoa@gmail.com</span> | <span>Phone: 09502588355</span>
+      </div>
+      This web is managed by the Cabintan Livelihood Community Association Cooperative (CaLCoA - Coop)
+    </footer>
+  </main>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Supabase Config -->
+  <script src="supabase-config.js"></script>
+
+  <!-- Login Logic -->
+  <script src="admin-login.js"></script>
+  <script>
+    (function () {
+      const loginForm = document.getElementById("adminLoginForm");
+      const forgotForm = document.getElementById("forgotPasswordForm");
+      const otpForm = document.getElementById("otpVerificationForm");
+      const changePasswordForm =
+        document.getElementById("changePasswordForm");
+      const resetSuccess = document.getElementById("resetSuccess");
+      const forgotLink = document.getElementById("forgotPasswordLink");
+      const backToLoginLink = document.getElementById("backToLoginLink");
+      const resetBtn = document.getElementById("resetSubmitBtn");
+      const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+      const changePasswordBtn = document.getElementById("changePasswordBtn");
+      const resendOtpLink = document.getElementById("resendOtpLink");
+      const backToForgotLink = document.getElementById("backToForgotLink");
+      const backToOtpLink = document.getElementById("backToOtpLink");
+      const roleSelection = document.querySelector(".role-selection");
+      const brandHeader = document.querySelector(".brand");
+      const togglePassword = document.getElementById("togglePassword");
+      const adminEmail = document.getElementById("adminEmail");
+      const adminPassword = document.getElementById("adminPassword");
+      const emailGroup = document.getElementById("emailGroup");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+      const resetEmail = document.getElementById("resetEmail");
+      const resetGroup = document.getElementById("resetGroup");
+      const resetError = document.getElementById("resetError");
+      const otpInput = document.getElementById("otpInput");
+      const otpGroup = document.getElementById("otpGroup");
+      const otpError = document.getElementById("otpError");
+      const newPassword = document.getElementById("newPassword");
+      const confirmPassword = document.getElementById("confirmPassword");
+      const newPasswordGroup = document.getElementById("newPasswordGroup");
+      const confirmPasswordGroup = document.getElementById(
+        "confirmPasswordGroup"
+      );
+      const newPasswordError = document.getElementById("newPasswordError");
+      const confirmPasswordError = document.getElementById(
+        "confirmPasswordError"
+      );
+      const toggleNewPassword = document.getElementById("toggleNewPassword");
+      const toggleConfirmPassword = document.getElementById(
+        "toggleConfirmPassword"
+      );
+      const backToLoginBtn = document.getElementById("backToLoginBtn");
+
+      // Store reset email and token for password change
+      let resetEmailValue = "";
+      let resetToken = "";
+      let resendTimer = null;
+
+      function startResendTimer() {
+        if (resendTimer) clearInterval(resendTimer);
+        let count = 60;
+        if (!resendOtpLink) return;
+
+        resendOtpLink.style.pointerEvents = "none";
+        resendOtpLink.style.opacity = "0.5";
+        resendOtpLink.textContent = `Resend OTP (${count}s)`;
+
+        resendTimer = setInterval(() => {
+          count--;
+          if (count <= 0) {
+            clearInterval(resendTimer);
+            resendOtpLink.style.pointerEvents = "auto";
+            resendOtpLink.style.opacity = "1";
+            resendOtpLink.textContent = "Resend OTP";
+          } else {
+            resendOtpLink.textContent = `Resend OTP (${count}s)`;
+          }
+        }, 1000);
+      }
+
+      function showForgot() {
+        if (!forgotForm || !loginForm) return;
+        loginForm.classList.add("fade-out");
+        setTimeout(() => {
+          loginForm.classList.add("hidden");
+          loginForm.classList.remove("fade-out");
+          if (roleSelection) roleSelection.classList.add("hidden");
+          if (brandHeader) brandHeader.classList.add("hidden");
+          forgotForm.classList.remove("hidden");
+          forgotForm.classList.add("fade-in");
+          forgotForm.setAttribute("aria-hidden", "false");
+          // Hide other forms
+          if (otpForm) {
+            otpForm.classList.add("hidden");
+            otpForm.setAttribute("aria-hidden", "true");
+          }
+          if (changePasswordForm) {
+            changePasswordForm.classList.add("hidden");
+            changePasswordForm.setAttribute("aria-hidden", "true");
+          }
+          if (resetSuccess) {
+            resetSuccess.classList.add("hidden");
+            resetSuccess.setAttribute("aria-hidden", "true");
+          }
+          // Reset form values
+          if (resetEmail) resetEmail.value = "";
+          if (otpInput) otpInput.value = "";
+          if (newPassword) newPassword.value = "";
+          if (confirmPassword) confirmPassword.value = "";
+          resetEmailValue = "";
+          resetToken = "";
+        }, 160);
+      }
+
+      function showLogin() {
+        if (!forgotForm || !loginForm) return;
+        // Find which form is currently visible
+        const activeView = !forgotForm.classList.contains("hidden")
+          ? forgotForm
+          : !otpForm.classList.contains("hidden")
+            ? otpForm
+            : !changePasswordForm.classList.contains("hidden")
+              ? changePasswordForm
+              : resetSuccess;
+        if (activeView) activeView.classList.add("fade-out");
+        setTimeout(() => {
+          if (activeView) {
+            activeView.classList.add("hidden");
+            activeView.classList.remove("fade-out", "fade-in");
+            activeView.setAttribute("aria-hidden", "true");
+          }
+          // Hide all reset-related forms
+          if (forgotForm) {
+            forgotForm.classList.add("hidden");
+            forgotForm.setAttribute("aria-hidden", "true");
+          }
+          if (otpForm) {
+            otpForm.classList.add("hidden");
+            otpForm.setAttribute("aria-hidden", "true");
+          }
+          if (changePasswordForm) {
+            changePasswordForm.classList.add("hidden");
+            changePasswordForm.setAttribute("aria-hidden", "true");
+          }
+          if (resetSuccess) {
+            resetSuccess.classList.add("hidden");
+            resetSuccess.setAttribute("aria-hidden", "true");
+          }
+          if (roleSelection) roleSelection.classList.remove("hidden");
+          if (brandHeader) brandHeader.classList.remove("hidden");
+          loginForm.classList.remove("hidden");
+          loginForm.classList.add("fade-in");
+          // Reset form values
+          if (resetEmail) resetEmail.value = "";
+          if (otpInput) otpInput.value = "";
+          if (newPassword) newPassword.value = "";
+          if (confirmPassword) confirmPassword.value = "";
+          resetEmailValue = "";
+          resetToken = "";
+        }, 160);
+      }
+
+      if (forgotLink) {
+        forgotLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          showForgot();
+        });
+      }
+      if (backToLoginLink) {
+        backToLoginLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          showLogin();
+        });
+      }
+      if (backToLoginBtn) {
+        backToLoginBtn.addEventListener("click", function () {
+          showLogin();
+        });
+      }
+      // Send OTP via email
+      if (resetBtn) {
+        resetBtn.addEventListener("click", async function () {
+          const email = resetEmail.value.trim();
+          const valid = /.+@.+\..+/.test(email);
+          if (!valid) {
+            resetGroup.classList.add("invalid");
+            resetError.textContent = "Please enter a valid email address";
+            return;
+          }
+          resetGroup.classList.remove("invalid");
+
+          try {
+            resetBtn.disabled = true;
+            resetBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            const supabase = getSupabaseClient();
+            if (!supabase) {
+              throw new Error(
+                "Supabase client is not available. Please check your configuration."
+              );
+            }
+
+            // Send password reset email with OTP
+            const { error: resetError } =
+              await supabase.auth.resetPasswordForEmail(email, {
+                redirectTo: window.location.origin + "/index.html?reset=true",
+              });
+
+            if (resetError) {
+              throw resetError;
+            }
+
+            // Store email for later use
+            resetEmailValue = email;
+
+            // Start the resend timer immediately
+            startResendTimer();
+
+            // Show OTP verification form
+            if (forgotForm) {
+              forgotForm.classList.add("fade-out");
+            }
+            setTimeout(() => {
+              if (forgotForm) {
+                forgotForm.classList.add("hidden");
+                forgotForm.classList.remove("fade-out", "fade-in");
+                forgotForm.setAttribute("aria-hidden", "true");
+              }
+              if (otpForm) {
+                otpForm.classList.remove("hidden");
+                otpForm.classList.add("fade-in");
+                otpForm.setAttribute("aria-hidden", "false");
+              }
+            }, 160);
+          } catch (error) {
+            console.error("Error sending OTP:", error);
+            resetGroup.classList.add("invalid");
+            resetError.textContent =
+              error.message || "Failed to send OTP. Please try again.";
+          } finally {
+            resetBtn.disabled = false;
+            resetBtn.innerHTML =
+              '<i class="fas fa-envelope"></i> <span>Send OTP via Email</span>';
+          }
+        });
+      }
+
+      // Verify OTP (token from email)
+      if (verifyOtpBtn) {
+        verifyOtpBtn.addEventListener("click", async function () {
+          const otp = otpInput.value.trim();
+          if (!otp) {
+            otpGroup.classList.add("invalid");
+            otpError.style.display = "block";
+            otpError.textContent =
+              "Please enter the OTP code from your email";
+            return;
+          }
+
+          try {
+            verifyOtpBtn.disabled = true;
+            verifyOtpBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+
+            const supabase = getSupabaseClient();
+            if (!supabase) {
+              throw new Error("Supabase client is not available.");
+            }
+
+            // First, check if token is in URL (user clicked email link)
+            const urlParams = new URLSearchParams(window.location.search);
+            const hashParams = new URLSearchParams(
+              window.location.hash.substring(1)
+            );
+            const accessTokenFromUrl = hashParams.get("access_token");
+            const refreshTokenFromUrl = hashParams.get("refresh_token");
+
+            let sessionSet = false;
+
+            // If token is in URL hash (user clicked link), use it
+            if (accessTokenFromUrl) {
+              const { data: sessionData, error: sessionError } =
+                await supabase.auth.setSession({
+                  access_token: accessTokenFromUrl,
+                  refresh_token: refreshTokenFromUrl || "",
+                });
+
+              if (!sessionError) {
+                resetToken = accessTokenFromUrl;
+                sessionSet = true;
+              }
+            }
+
+            // If no URL token or URL token failed, try using the manually entered token
+            if (!sessionSet) {
+              // The token from email is a recovery OTP token
+              // Use verifyOtp to verify it and establish a session
+              try {
+                console.log("Verifying OTP token for recovery...");
+
+                // Use verifyOtp with type "recovery" to verify the token
+                const verifyOtpResult = await supabase.auth.verifyOtp({
+                  email: resetEmailValue,
+                  token: otp,
+                  type: "recovery",
+                });
+
+                if (verifyOtpResult.error) {
+                  console.error(
+                    "OTP verification error:",
+                    verifyOtpResult.error
+                  );
+                  throw new Error(
+                    verifyOtpResult.error.message ||
+                    "Invalid or expired token. Please check the code and try again."
+                  );
+                }
+
+                console.log("✅ OTP verified successfully");
+
+                // If verifyOtp succeeds, we should have a session
+                // Wait a moment for the session to be established
+                await new Promise((resolve) => setTimeout(resolve, 300));
+
+                const {
+                  data: { session },
+                  error: sessionError,
+                } = await supabase.auth.getSession();
+
+                if (sessionError) {
+                  console.error("Session retrieval error:", sessionError);
+                  throw new Error(
+                    "Token verified but failed to retrieve session. Please try again."
+                  );
+                }
+
+                if (session && session.access_token && session.user) {
+                  resetToken = session.access_token;
+                  sessionSet = true;
+                  console.log("✅ OTP verified and session established");
+                  console.log("Session user:", session.user.email);
+                  console.log(
+                    "Session has access_token:",
+                    !!session.access_token
+                  );
+                } else {
+                  // Try to get session again after a short delay
+                  console.log(
+                    "Session not immediately available, retrying..."
+                  );
+                  await new Promise((resolve) => setTimeout(resolve, 500));
+                  const {
+                    data: { session: retrySession },
+                    error: retryError,
+                  } = await supabase.auth.getSession();
+
+                  if (retryError) {
+                    console.error("Retry session error:", retryError);
+                    throw new Error(
+                      "Token verified but failed to establish session. Please try again."
+                    );
+                  }
+
+                  if (
+                    retrySession &&
+                    retrySession.access_token &&
+                    retrySession.user
+                  ) {
+                    resetToken = retrySession.access_token;
+                    sessionSet = true;
+                    console.log("✅ Session established on retry");
+                    console.log("Session user:", retrySession.user.email);
+                  } else {
+                    throw new Error(
+                      "Token verified but session not established. Please request a new OTP."
+                    );
+                  }
+                }
+              } catch (tokenError) {
+                // Token verification failed
+                console.error("Token verification error:", tokenError);
+                otpGroup.classList.add("invalid");
+                otpError.style.display = "block";
+                otpError.textContent =
+                  tokenError.message ||
+                  "Invalid or expired OTP. Please request a new one.";
+                return;
+              }
+            }
+
+            // CRITICAL: Verify we have a valid session with access token and user
+            const {
+              data: { session },
+              error: finalSessionError,
+            } = await supabase.auth.getSession();
+
+            if (finalSessionError) {
+              console.error("Final session check error:", finalSessionError);
+              otpGroup.classList.add("invalid");
+              otpError.style.display = "block";
+              otpError.textContent =
+                "Failed to establish session. Please request a new OTP.";
+              return;
+            }
+
+            if (!session || !session.access_token || !session.user) {
+              console.error("Invalid session:", {
+                session,
+                hasToken: !!session?.access_token,
+                hasUser: !!session?.user,
+              });
+              otpGroup.classList.add("invalid");
+              otpError.style.display = "block";
+              otpError.textContent =
+                "Could not establish valid session. Please request a new OTP.";
+              return;
+            }
+
+            console.log(
+              "✅ Valid session confirmed before showing password change form"
+            );
+            console.log("Session user:", session.user.email);
+            console.log(
+              "Session expires at:",
+              new Date(session.expires_at * 1000)
+            );
+
+            // Token verified successfully - show password change form
+            otpGroup.classList.remove("invalid");
+            otpError.style.display = "none";
+
+            if (otpForm) {
+              otpForm.classList.add("fade-out");
+            }
+            setTimeout(() => {
+              if (otpForm) {
+                otpForm.classList.add("hidden");
+                otpForm.classList.remove("fade-out", "fade-in");
+                otpForm.setAttribute("aria-hidden", "true");
+              }
+              if (changePasswordForm) {
+                changePasswordForm.classList.remove("hidden");
+                changePasswordForm.classList.add("fade-in");
+                changePasswordForm.setAttribute("aria-hidden", "false");
+              }
+            }, 160);
+          } catch (error) {
+            console.error("Error verifying OTP:", error);
+            otpGroup.classList.add("invalid");
+            otpError.style.display = "block";
+            otpError.textContent =
+              error.message || "Failed to verify OTP. Please try again.";
+          } finally {
+            verifyOtpBtn.disabled = false;
+            verifyOtpBtn.innerHTML =
+              '<i class="fas fa-check"></i> <span>Verify OTP</span>';
+          }
+        });
+      }
+
+      // Resend OTP
+      if (resendOtpLink) {
+        resendOtpLink.addEventListener("click", async function (e) {
+          e.preventDefault();
+          if (!resetEmailValue) {
+            alert("Please enter your email first.");
+            return;
+          }
+
+          try {
+            const supabase = getSupabaseClient();
+            if (!supabase) {
+              throw new Error("Supabase client is not available.");
+            }
+
+            await supabase.auth.resetPasswordForEmail(resetEmailValue, {
+              redirectTo: window.location.origin + "/index.html?reset=true",
+            });
+
+            alert("OTP has been resent to your email.");
+            startResendTimer();
+          } catch (error) {
+            console.error("Error resending OTP:", error);
+            alert(
+              "Failed to resend OTP: " + (error.message || "Unknown error")
+            );
+          }
+        });
+      }
+
+      // Change password
+      if (changePasswordBtn) {
+        changePasswordBtn.addEventListener("click", async function () {
+          const newPwd = newPassword.value;
+          const confirmPwd = confirmPassword.value;
+
+          let isValid = true;
+
+          if (!newPwd || newPwd.length < 6) {
+            newPasswordGroup.classList.add("invalid");
+            newPasswordError.textContent =
+              "Password must be at least 6 characters";
+            isValid = false;
+          } else {
+            newPasswordGroup.classList.remove("invalid");
+          }
+
+          if (newPwd !== confirmPwd) {
+            confirmPasswordGroup.classList.add("invalid");
+            confirmPasswordError.textContent = "Passwords do not match";
+            isValid = false;
+          } else {
+            confirmPasswordGroup.classList.remove("invalid");
+          }
+
+          if (!isValid) return;
+
+          try {
+            changePasswordBtn.disabled = true;
+            changePasswordBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Changing...';
+
+            const supabase = getSupabaseClient();
+            if (!supabase) {
+              throw new Error("Supabase client is not available.");
+            }
+
+            // CRITICAL: Verify we have an active session before updating password
+            const {
+              data: { session: currentSession },
+            } = await supabase.auth.getSession();
+
+            if (!currentSession || !currentSession.access_token) {
+              throw new Error(
+                "Your reset session has expired. Please request a new password reset."
+              );
+            }
+
+            console.log("Current session exists, updating Auth password...");
+            console.log("Session user:", currentSession.user?.email);
+            console.log(
+              "Session access_token exists:",
+              !!currentSession.access_token
+            );
+
+            // Update password in Supabase Auth (requires active session from token)
+            // CRITICAL: This must succeed before updating staff table
+            console.log("🔐 Attempting to update Auth password...");
+            console.log("Session details:", {
+              user: currentSession.user?.email,
+              userId: currentSession.user?.id,
+              hasAccessToken: !!currentSession.access_token,
+              hasRefreshToken: !!currentSession.refresh_token,
+              expiresAt: currentSession.expires_at
+                ? new Date(currentSession.expires_at * 1000).toISOString()
+                : "N/A",
+            });
+
+            // CRITICAL: Ensure the session is still valid and not expired
+            if (
+              currentSession.expires_at &&
+              currentSession.expires_at * 1000 < Date.now()
+            ) {
+              throw new Error(
+                "Your reset session has expired. Please request a new password reset."
+              );
+            }
+
+            // Call updateUser and ensure it completes
+            // CRITICAL: During recovery flow, updateUser should work with the recovery session
+            console.log(
+              "Calling supabase.auth.updateUser({ password: '***' })..."
+            );
+
+            // First, ensure we have a valid access token
+            if (!currentSession.access_token) {
+              throw new Error(
+                "No access token in session. Cannot update password."
+              );
+            }
+
+            let updateData, updateError;
+            const updateResult = await supabase.auth.updateUser({
+              password: newPwd,
+            });
+
+            updateData = updateResult.data;
+            updateError = updateResult.error;
+
+            console.log("updateUser response:", {
+              hasData: !!updateData,
+              hasUser: !!updateData?.user,
+              hasError: !!updateError,
+              errorMessage: updateError?.message,
+            });
+
+            // If updateUser fails, try alternative method using direct API call
+            if (updateError) {
+              console.warn("updateUser failed, trying alternative method...");
+
+              // Get Supabase URL and anon key
+              const supabaseUrl =
+                window.SUPABASE_URL ||
+                supabase.supabaseUrl ||
+                "https://afkwexvvuxwbpioqnelp.supabase.co";
+              const supabaseKey =
+                window.SUPABASE_ANON_KEY || supabase.supabaseKey;
+
+              // Try updating via direct API call
+              const updateResponse = await fetch(
+                `${supabaseUrl}/auth/v1/user`,
+                {
+                  method: "PUT",
+                  headers: {
+                    apikey: supabaseKey,
+                    Authorization: `Bearer ${currentSession.access_token}`,
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    password: newPwd,
+                  }),
+                }
+              );
+
+              if (!updateResponse.ok) {
+                const errorText = await updateResponse.text();
+                console.error("Direct API update failed:", errorText);
+                // Fall through to throw the original updateError
+              } else {
+                const apiUpdateResult = await updateResponse.json();
+                console.log("✅ Password updated via direct API call");
+                // Continue as if updateUser succeeded
+                updateData = { user: apiUpdateResult };
+                updateError = null;
+              }
+            }
+
+            // CRITICAL: Check for errors first - if there's an error, DO NOT proceed
+            if (updateError) {
+              console.error(
+                "❌ Supabase Auth password update FAILED:",
+                updateError
+              );
+              console.error("Error details:", {
+                message: updateError.message,
+                status: updateError.status,
+                name: updateError.name,
+              });
+
+              // Check if it's a session issue
+              const {
+                data: { session: checkSession },
+              } = await supabase.auth.getSession();
+              if (!checkSession || !checkSession.access_token) {
+                throw new Error(
+                  "Your reset session has expired. Please request a new password reset."
+                );
+              }
+
+              // If session exists but update failed, throw the actual error
+              // DO NOT proceed to staff table update
+              throw new Error(
+                `Failed to update password in Auth: ${updateError.message || "Unknown error"
+                }. Please try again.`
+              );
+            }
+
+            // If we get here, updateUser returned no error
+            // Verify we got confirmation
+            if (updateData && updateData.user) {
+              console.log(
+                "✅ Supabase Auth password updated successfully for user:",
+                updateData.user.email
+              );
+              console.log("Update response:", updateData);
+            } else {
+              // Even if updateData is null, Supabase might have updated it
+              // But we should verify the session is still valid
+              console.warn(
+                "⚠️ updateUser returned no data, but no error. Verifying session..."
+              );
+              const {
+                data: { session: verifySession },
+              } = await supabase.auth.getSession();
+              if (!verifySession || !verifySession.user) {
+                throw new Error(
+                  "Password update may have failed - session is invalid. Please try again."
+                );
+              }
+              console.log("✅ Session still valid after updateUser call");
+            }
+
+            // CRITICAL: Verify the password was actually updated in Auth
+            // We'll test by trying to sign in with the new password
+            // But first, let's make sure we have a valid session
+            const {
+              data: { session: postUpdateSession },
+            } = await supabase.auth.getSession();
+
+            if (!postUpdateSession || !postUpdateSession.user) {
+              throw new Error(
+                "Session lost after password update. The password may not have been updated. Please try again."
+              );
+            }
+
+            console.log("✅ Session still valid after password update");
+
+            // CRITICAL: Verify the password was actually updated in Auth
+            // We'll test by signing out and then signing in with the new password
+            console.log(
+              "🔍 Verifying password was actually updated in Auth..."
+            );
+
+            // Store the current session info before signing out
+            const currentUserEmail = currentSession.user.email;
+
+            // Sign out to clear the recovery session
+            await supabase.auth.signOut();
+
+            // Wait a moment for sign out to complete
+            await new Promise((resolve) => setTimeout(resolve, 500));
+
+            // Try to sign in with the new password to verify it was actually updated
+            const verifySignIn = await supabase.auth.signInWithPassword({
+              email: currentUserEmail,
+              password: newPwd,
+            });
+
+            if (verifySignIn.error) {
+              console.error(
+                "❌ Password verification failed:",
+                verifySignIn.error
+              );
+              throw new Error(
+                `Password update verification failed: ${verifySignIn.error.message}. ` +
+                "The password may not have been updated in Auth. Please try again."
+              );
+            }
+
+            if (verifySignIn.data && verifySignIn.data.user) {
+              console.log(
+                "✅ Password verification successful - Auth password was updated!"
+              );
+              console.log("Verified user:", verifySignIn.data.user.email);
+
+              // Sign out again since we're done verifying
+              await supabase.auth.signOut();
+            } else {
+              throw new Error(
+                "Password update verification failed - could not sign in with new password."
+              );
+            }
+
+            console.log("✅ Auth password update completed and verified");
+
+            // Now update the staff table password as well
+            console.log("Updating staff table password...");
+            const { error: staffUpdateError } = await supabase
+              .from("staff")
+              .update({ password: newPwd })
+              .eq("email", currentUserEmail.toLowerCase());
+
+            if (staffUpdateError) {
+              console.error(
+                "Failed to update staff password:",
+                staffUpdateError
+              );
+              // Show warning but don't block - Auth password is updated
+              alert(
+                "Password updated in Auth, but failed to update in staff table. " +
+                "You may need to contact an administrator to sync your password."
+              );
+            } else {
+              console.log("✅ Staff table password updated successfully");
+            }
+
+            // Also try to update admin table if it's an admin
+            const { error: adminUpdateError } = await supabase
+              .from("admins")
+              .update({ password: newPwd })
+              .eq("email", currentUserEmail.toLowerCase());
+
+            if (adminUpdateError) {
+              console.warn(
+                "Failed to update admin password (may not be admin):",
+                adminUpdateError
+              );
+            } else {
+              console.log("✅ Admin table password updated (if applicable)");
+            }
+
+            console.log(
+              "✅ Both Auth and staff table passwords updated successfully"
+            );
+
+            // Show success
+            if (changePasswordForm) {
+              changePasswordForm.classList.add("fade-out");
+            }
+            setTimeout(() => {
+              if (changePasswordForm) {
+                changePasswordForm.classList.add("hidden");
+                changePasswordForm.classList.remove("fade-out", "fade-in");
+                changePasswordForm.setAttribute("aria-hidden", "true");
+              }
+              if (resetSuccess) {
+                resetSuccess.classList.remove("hidden");
+                resetSuccess.classList.add("fade-in");
+                resetSuccess.setAttribute("aria-hidden", "false");
+              }
+            }, 160);
+          } catch (error) {
+            console.error("Error changing password:", error);
+            alert(
+              "Failed to change password: " +
+              (error.message || "Unknown error")
+            );
+          } finally {
+            changePasswordBtn.disabled = false;
+            changePasswordBtn.innerHTML =
+              '<i class="fas fa-key"></i> <span>Change Password</span>';
+          }
+        });
+      }
+
+      // Back to forgot password form
+      if (backToForgotLink) {
+        backToForgotLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (otpForm) {
+            otpForm.classList.add("fade-out");
+          }
+          setTimeout(() => {
+            if (otpForm) {
+              otpForm.classList.add("hidden");
+              otpForm.classList.remove("fade-out", "fade-in");
+              otpForm.setAttribute("aria-hidden", "true");
+            }
+            if (forgotForm) {
+              forgotForm.classList.remove("hidden");
+              forgotForm.classList.add("fade-in");
+              forgotForm.setAttribute("aria-hidden", "false");
+            }
+          }, 160);
+        });
+      }
+
+      // Back to OTP form
+      if (backToOtpLink) {
+        backToOtpLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (changePasswordForm) {
+            changePasswordForm.classList.add("fade-out");
+          }
+          setTimeout(() => {
+            if (changePasswordForm) {
+              changePasswordForm.classList.add("hidden");
+              changePasswordForm.classList.remove("fade-out", "fade-in");
+              changePasswordForm.setAttribute("aria-hidden", "true");
+            }
+            if (otpForm) {
+              otpForm.classList.remove("hidden");
+              otpForm.classList.add("fade-in");
+              otpForm.setAttribute("aria-hidden", "false");
+            }
+          }, 160);
+        });
+      }
+
+      // Password visibility toggles for new password fields
+      if (toggleNewPassword && newPassword) {
+        toggleNewPassword.addEventListener("click", function () {
+          const isPwd = newPassword.getAttribute("type") === "password";
+          newPassword.setAttribute("type", isPwd ? "text" : "password");
+          this.innerHTML = isPwd
+            ? '<i class="fas fa-eye-slash"></i>'
+            : '<i class="fas fa-eye"></i>';
+          this.setAttribute(
+            "aria-label",
+            isPwd ? "Hide password" : "Show password"
+          );
+        });
+      }
+
+      if (toggleConfirmPassword && confirmPassword) {
+        toggleConfirmPassword.addEventListener("click", function () {
+          const isPwd = confirmPassword.getAttribute("type") === "password";
+          confirmPassword.setAttribute("type", isPwd ? "text" : "password");
+          this.innerHTML = isPwd
+            ? '<i class="fas fa-eye-slash"></i>'
+            : '<i class="fas fa-eye"></i>';
+          this.setAttribute(
+            "aria-label",
+            isPwd ? "Hide password" : "Show password"
+          );
+        });
+      }
+
+      // Check if user came from password reset email link
+      const urlParams = new URLSearchParams(window.location.search);
+      const hashParams = new URLSearchParams(
+        window.location.hash.substring(1)
+      );
+      if (
+        urlParams.get("reset") === "true" ||
+        urlParams.get("type") === "recovery" ||
+        hashParams.get("access_token")
+      ) {
+        // User clicked the reset link from email - show OTP form
+        // Token will be auto-filled from URL if available
+        if (loginForm) loginForm.classList.add("hidden");
+        if (forgotForm) forgotForm.classList.add("hidden");
+        if (otpForm) {
+          otpForm.classList.remove("hidden");
+          otpForm.setAttribute("aria-hidden", "false");
+
+          // If token is in URL hash, auto-verify
+          const accessTokenFromUrl = hashParams.get("access_token");
+          if (accessTokenFromUrl && otpInput) {
+            otpInput.value = accessTokenFromUrl;
+            // Auto-click verify after a short delay
+            setTimeout(() => {
+              if (verifyOtpBtn) verifyOtpBtn.click();
+            }, 500);
+          }
+        }
+        resetEmailValue = urlParams.get("email") || "";
+      }
+
+      // Login form inline validation
+      function validateLoginFields() {
+        let ok = true;
+        const email = adminEmail.value.trim();
+        if (!/.+@.+\..+/.test(email)) {
+          emailGroup.classList.add("invalid");
+          emailError.textContent = "Please enter a valid email";
+          ok = false;
+        } else {
+          emailGroup.classList.remove("invalid");
+        }
+        if (!adminPassword.value) {
+          passwordError.textContent = "Password is required";
+          adminPassword.closest(".form-group").classList.add("invalid");
+          ok = false;
+        } else {
+          adminPassword.closest(".form-group").classList.remove("invalid");
+        }
+        return ok;
+      }
+
+      // Hook into the existing login submit button to show loading state and validate
+      const loginSubmitBtn = document.querySelector(
+        "#adminLoginForm .login-btn"
+      );
+      if (loginSubmitBtn && loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+          if (!validateLoginFields()) {
+            event.preventDefault();
+            return false;
+          }
+          loginSubmitBtn.setAttribute("aria-busy", "true");
+          setTimeout(() => loginSubmitBtn.removeAttribute("aria-busy"), 1500);
+        });
+      }
+
+      // Password visibility toggle
+      if (togglePassword && adminPassword) {
+        togglePassword.addEventListener("click", function () {
+          const isPwd = adminPassword.getAttribute("type") === "password";
+          adminPassword.setAttribute("type", isPwd ? "text" : "password");
+          this.innerHTML = isPwd
+            ? '<i class="fas fa-eye-slash"></i>'
+            : '<i class="fas fa-eye"></i>';
+          this.setAttribute(
+            "aria-label",
+            isPwd ? "Hide password" : "Show password"
+          );
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

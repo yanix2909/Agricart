@@ -1,0 +1,1542 @@
+{
+  "Airport": {
+    "name": "Airport",
+    "distance": 16.43,
+    "coordinates": [
+      11.024,
+      124.6336
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721931.973751
+  },
+  "Alta Vista": {
+    "name": "Alta Vista",
+    "distance": 19.47,
+    "coordinates": [
+      11.0118026,
+      124.6203237
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721932.9751327
+  },
+  "Bagong (also Bagongbong)": {
+    "name": "Bagong (also Bagongbong)",
+    "distance": 16.19,
+    "coordinates": [
+      11.0248,
+      124.6348
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721933.97709
+  },
+  "Bagong Buhay": {
+    "name": "Bagong Buhay",
+    "distance": 16.07,
+    "coordinates": [
+      11.0252,
+      124.6354
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721934.9784856
+  },
+  "Bantigue": {
+    "name": "Bantigue",
+    "distance": 21.63,
+    "coordinates": [
+      10.9895862,
+      124.6222361
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721935.9792962
+  },
+  "Barangay 1 (Poblacion)": {
+    "name": "Barangay 1 (Poblacion)",
+    "distance": 21.89,
+    "coordinates": [
+      11.0064,
+      124.6072
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721936.980241
+  },
+  "Barangay 2 (Poblacion)": {
+    "name": "Barangay 2 (Poblacion)",
+    "distance": 21.76,
+    "coordinates": [
+      11.0068,
+      124.6078
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721937.9814618
+  },
+  "Barangay 3 (Poblacion)": {
+    "name": "Barangay 3 (Poblacion)",
+    "distance": 21.63,
+    "coordinates": [
+      11.0072,
+      124.6084
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721938.982573
+  },
+  "Barangay 4 (Poblacion)": {
+    "name": "Barangay 4 (Poblacion)",
+    "distance": 21.51,
+    "coordinates": [
+      11.0076,
+      124.609
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721939.9846725
+  },
+  "Barangay 5 (Poblacion)": {
+    "name": "Barangay 5 (Poblacion)",
+    "distance": 21.38,
+    "coordinates": [
+      11.008,
+      124.6096
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721940.986265
+  },
+  "Barangay 6 (Poblacion)": {
+    "name": "Barangay 6 (Poblacion)",
+    "distance": 21.25,
+    "coordinates": [
+      11.0084,
+      124.6102
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721941.9877057
+  },
+  "Barangay 7 (Poblacion)": {
+    "name": "Barangay 7 (Poblacion)",
+    "distance": 21.13,
+    "coordinates": [
+      11.0088,
+      124.6108
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721942.9889371
+  },
+  "Barangay 8 (Poblacion)": {
+    "name": "Barangay 8 (Poblacion)",
+    "distance": 21.0,
+    "coordinates": [
+      11.0092,
+      124.6114
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721943.9905143
+  },
+  "Barangay 9 (Poblacion)": {
+    "name": "Barangay 9 (Poblacion)",
+    "distance": 20.88,
+    "coordinates": [
+      11.0096,
+      124.612
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721944.9917705
+  },
+  "Barangay 10 (Poblacion)": {
+    "name": "Barangay 10 (Poblacion)",
+    "distance": 20.75,
+    "coordinates": [
+      11.01,
+      124.6126
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721945.9925437
+  },
+  "Barangay 11 (Poblacion)": {
+    "name": "Barangay 11 (Poblacion)",
+    "distance": 20.63,
+    "coordinates": [
+      11.0104,
+      124.6132
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721946.993845
+  },
+  "Barangay 12 (Poblacion)": {
+    "name": "Barangay 12 (Poblacion)",
+    "distance": 20.5,
+    "coordinates": [
+      11.0108,
+      124.6138
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721947.9953754
+  },
+  "Barangay 13 (Poblacion)": {
+    "name": "Barangay 13 (Poblacion)",
+    "distance": 20.37,
+    "coordinates": [
+      11.0112,
+      124.6144
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721948.996305
+  },
+  "Barangay 14 (Poblacion)": {
+    "name": "Barangay 14 (Poblacion)",
+    "distance": 20.25,
+    "coordinates": [
+      11.0116,
+      124.615
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721949.9980268
+  },
+  "Barangay 15 (Poblacion)": {
+    "name": "Barangay 15 (Poblacion)",
+    "distance": 20.12,
+    "coordinates": [
+      11.012,
+      124.6156
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721950.9994435
+  },
+  "Barangay 16 (Poblacion)": {
+    "name": "Barangay 16 (Poblacion)",
+    "distance": 20.0,
+    "coordinates": [
+      11.0124,
+      124.6162
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721952.0005279
+  },
+  "Barangay 17 (Poblacion)": {
+    "name": "Barangay 17 (Poblacion)",
+    "distance": 19.87,
+    "coordinates": [
+      11.0128,
+      124.6168
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721953.001703
+  },
+  "Barangay 18 (Poblacion)": {
+    "name": "Barangay 18 (Poblacion)",
+    "distance": 19.75,
+    "coordinates": [
+      11.0132,
+      124.6174
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721954.0027218
+  },
+  "Barangay 19 (Poblacion)": {
+    "name": "Barangay 19 (Poblacion)",
+    "distance": 19.63,
+    "coordinates": [
+      11.0136,
+      124.618
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721955.003766
+  },
+  "Barangay 20 (Poblacion)": {
+    "name": "Barangay 20 (Poblacion)",
+    "distance": 19.5,
+    "coordinates": [
+      11.014,
+      124.6186
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721956.0056412
+  },
+  "Barangay 21 (Poblacion)": {
+    "name": "Barangay 21 (Poblacion)",
+    "distance": 19.38,
+    "coordinates": [
+      11.0144,
+      124.6192
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721957.0074856
+  },
+  "Barangay 22 (Poblacion)": {
+    "name": "Barangay 22 (Poblacion)",
+    "distance": 19.25,
+    "coordinates": [
+      11.0148,
+      124.6198
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721958.0088842
+  },
+  "Barangay 23 (Poblacion)": {
+    "name": "Barangay 23 (Poblacion)",
+    "distance": 19.13,
+    "coordinates": [
+      11.0152,
+      124.6204
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721959.0100284
+  },
+  "Barangay 24 (Poblacion)": {
+    "name": "Barangay 24 (Poblacion)",
+    "distance": 19.01,
+    "coordinates": [
+      11.0156,
+      124.621
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721960.0112677
+  },
+  "Barangay 25 (Poblacion)": {
+    "name": "Barangay 25 (Poblacion)",
+    "distance": 18.88,
+    "coordinates": [
+      11.016,
+      124.6216
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721961.012511
+  },
+  "Barangay 26 (Poblacion)": {
+    "name": "Barangay 26 (Poblacion)",
+    "distance": 18.76,
+    "coordinates": [
+      11.0164,
+      124.6222
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721962.0138664
+  },
+  "Barangay 27 (Poblacion)": {
+    "name": "Barangay 27 (Poblacion)",
+    "distance": 18.63,
+    "coordinates": [
+      11.0168,
+      124.6228
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721963.01546
+  },
+  "Barangay 28 (Poblacion)": {
+    "name": "Barangay 28 (Poblacion)",
+    "distance": 18.51,
+    "coordinates": [
+      11.0172,
+      124.6234
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721964.0166254
+  },
+  "Barangay 29 (Poblacion)": {
+    "name": "Barangay 29 (Poblacion)",
+    "distance": 18.39,
+    "coordinates": [
+      11.0176,
+      124.624
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721965.0183446
+  },
+  "Batuan": {
+    "name": "Batuan",
+    "distance": 22.59,
+    "coordinates": [
+      11.0065859,
+      124.6023492
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721966.0195217
+  },
+  "Bayog": {
+    "name": "Bayog",
+    "distance": 15.95,
+    "coordinates": [
+      11.0256,
+      124.636
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721967.020783
+  },
+  "Biliboy": {
+    "name": "Biliboy",
+    "distance": 17.55,
+    "coordinates": [
+      11.0400002,
+      124.6179024
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721968.021923
+  },
+  "Borok": {
+    "name": "Borok",
+    "distance": 18.26,
+    "coordinates": [
+      11.018,
+      124.6246
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721969.0233417
+  },
+  "Cabaon-an": {
+    "name": "Cabaon-an",
+    "distance": 13.34,
+    "coordinates": [
+      11.1090574,
+      124.6403262
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 50,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721970.0255647
+  },
+  "Cabulihan": {
+    "name": "Cabulihan",
+    "distance": 21.5,
+    "coordinates": [
+      11.095047,
+      124.5878714
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721971.0271406
+  },
+  "Cabintan": {
+    "name": "Cabintan",
+    "distance": 0.0,
+    "coordinates": [
+      11.08068,
+      124.7229718
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 0,
+    "isReference": true,
+    "duration": 0,
+    "calculatedAt": 1759721972.0277178
+  },
+  "Cagbuhangin": {
+    "name": "Cagbuhangin",
+    "distance": 22.2,
+    "coordinates": [
+      11.101258,
+      124.5846914
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721973.0294077
+  },
+  "Camp Downes": {
+    "name": "Camp Downes",
+    "distance": 21.34,
+    "coordinates": [
+      10.9966183,
+      124.6182589
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721974.0307171
+  },
+  "Can-adieng": {
+    "name": "Can-adieng",
+    "distance": 21.3,
+    "coordinates": [
+      11.002543,
+      124.6139237
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721975.0493302
+  },
+  "Can-untog": {
+    "name": "Can-untog",
+    "distance": 13.23,
+    "coordinates": [
+      11.14168,
+      124.78397000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 70,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721976.0506506
+  },
+  "Catmon": {
+    "name": "Catmon",
+    "distance": 24.86,
+    "coordinates": [
+      11.0778733,
+      124.5681315
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721977.0524435
+  },
+  "Cogon Combado": {
+    "name": "Cogon Combado",
+    "distance": 18.14,
+    "coordinates": [
+      11.0184,
+      124.6252
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721978.0541122
+  },
+  "Concepcion": {
+    "name": "Concepcion",
+    "distance": 20.66,
+    "coordinates": [
+      11.0821601,
+      124.5919397
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721979.0552418
+  },
+  "Curva": {
+    "name": "Curva",
+    "distance": 18.02,
+    "coordinates": [
+      11.0188,
+      124.6258
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721980.0564427
+  },
+  "Danao": {
+    "name": "Danao",
+    "distance": 17.9,
+    "coordinates": [
+      11.0192,
+      124.6264
+    ],
+    "classification": "rural",
+    "coastal": true,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721981.057465
+  },
+  "Danhug": {
+    "name": "Danhug",
+    "distance": 17.77,
+    "coordinates": [
+      11.0196,
+      124.627
+    ],
+    "classification": "rural",
+    "coastal": true,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721982.0586386
+  },
+  "Dayhagan": {
+    "name": "Dayhagan",
+    "distance": 17.65,
+    "coordinates": [
+      11.02,
+      124.6276
+    ],
+    "classification": "rural",
+    "coastal": true,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721983.0597389
+  },
+  "Dolores": {
+    "name": "Dolores",
+    "distance": 14.99,
+    "coordinates": [
+      11.0734276,
+      124.625735
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 50,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721984.0613663
+  },
+  "Domonar": {
+    "name": "Domonar",
+    "distance": 13.92,
+    "coordinates": [
+      11.14468,
+      124.78697
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 70,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721985.062391
+  },
+  "Don Felipe Larrazabal": {
+    "name": "Don Felipe Larrazabal",
+    "distance": 22.01,
+    "coordinates": [
+      11.0091648,
+      124.6046242
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721986.0633612
+  },
+  "Don Potenciano Larrazabal": {
+    "name": "Don Potenciano Larrazabal",
+    "distance": 33.73,
+    "coordinates": [
+      11.1441693,
+      124.5304971
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721987.0647652
+  },
+  "Doña Feliza Z. Mejia": {
+    "name": "Doña Feliza Z. Mejia",
+    "distance": 21.76,
+    "coordinates": [
+      11.0229658,
+      124.5986604
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721988.0661182
+  },
+  "Donghol": {
+    "name": "Donghol",
+    "distance": 17.53,
+    "coordinates": [
+      11.0204,
+      124.6282
+    ],
+    "classification": "rural",
+    "coastal": true,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721989.0681689
+  },
+  "Esperanza": {
+    "name": "Esperanza",
+    "distance": 39.24,
+    "coordinates": [
+      11.0727003,
+      124.4918009
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721990.0695193
+  },
+  "Gaas": {
+    "name": "Gaas",
+    "distance": 7.35,
+    "coordinates": [
+      11.0332467,
+      124.7102161
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721991.0705972
+  },
+  "Green Valley": {
+    "name": "Green Valley",
+    "distance": 37.46,
+    "coordinates": [
+      11.0614178,
+      124.5016307
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721992.0717103
+  },
+  "Guintigui-an": {
+    "name": "Guintigui-an",
+    "distance": 32.82,
+    "coordinates": [
+      11.1168402,
+      124.5282884
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721993.073129
+  },
+  "Hibunawon": {
+    "name": "Hibunawon",
+    "distance": 17.26,
+    "coordinates": [
+      11.1030537,
+      124.6141708
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721994.0753343
+  },
+  "Hugpa": {
+    "name": "Hugpa",
+    "distance": 17.41,
+    "coordinates": [
+      11.0208,
+      124.6288
+    ],
+    "classification": "rural",
+    "coastal": true,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721995.0764825
+  },
+  "Ipil": {
+    "name": "Ipil",
+    "distance": 22.12,
+    "coordinates": [
+      10.9754111,
+      124.6331304
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721996.0776925
+  },
+  "Juaton": {
+    "name": "Juaton",
+    "distance": 20.2,
+    "coordinates": [
+      11.0740796,
+      124.5947806
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721997.0792024
+  },
+  "Kadaohan": {
+    "name": "Kadaohan",
+    "distance": 17.28,
+    "coordinates": [
+      11.0212,
+      124.6294
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721998.0803206
+  },
+  "Labrador (Balion)": {
+    "name": "Labrador (Balion)",
+    "distance": 1.43,
+    "coordinates": [
+      11.087679999999999,
+      124.72997000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759721999.0826952
+  },
+  "Lao": {
+    "name": "Lao",
+    "distance": 20.15,
+    "coordinates": [
+      11.170679999999999,
+      124.81297
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722000.0837145
+  },
+  "Leondoni": {
+    "name": "Leondoni",
+    "distance": 5.63,
+    "coordinates": [
+      11.107679999999998,
+      124.74997
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722001.1630447
+  },
+  "Libertad": {
+    "name": "Libertad",
+    "distance": 26.17,
+    "coordinates": [
+      11.0352715,
+      124.5674749
+    ],
+    "classification": "rural",
+    "coastal": true,
+    "suggestedFee": 90,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722002.1640875
+  },
+  "Liberty": {
+    "name": "Liberty",
+    "distance": 22.22,
+    "coordinates": [
+      11.0056291,
+      124.605461
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722003.1662822
+  },
+  "Licuma": {
+    "name": "Licuma",
+    "distance": 4.56,
+    "coordinates": [
+      11.10268,
+      124.74497000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722004.1675549
+  },
+  "Liloan": {
+    "name": "Liloan",
+    "distance": 17.16,
+    "coordinates": [
+      11.0216,
+      124.63
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722005.1686852
+  },
+  "Linao": {
+    "name": "Linao",
+    "distance": 1.43,
+    "coordinates": [
+      11.087679999999999,
+      124.72997000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722006.1697109
+  },
+  "Luna": {
+    "name": "Luna",
+    "distance": 21.98,
+    "coordinates": [
+      11.0071717,
+      124.6060508
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722007.1710927
+  },
+  "Mabato": {
+    "name": "Mabato",
+    "distance": 17.04,
+    "coordinates": [
+      11.022,
+      124.6306
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722008.17234
+  },
+  "Mabini": {
+    "name": "Mabini",
+    "distance": 17.74,
+    "coordinates": [
+      10.9799703,
+      124.6720009
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722009.1733007
+  },
+  "Macabug": {
+    "name": "Macabug",
+    "distance": 22.58,
+    "coordinates": [
+      10.95752,
+      124.6550425
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722010.1742995
+  },
+  "Magaswi": {
+    "name": "Magaswi",
+    "distance": 9.81,
+    "coordinates": [
+      11.126679999999999,
+      124.76897000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722011.1755636
+  },
+  "Mahayag": {
+    "name": "Mahayag",
+    "distance": 12.17,
+    "coordinates": [
+      11.0482769,
+      124.6496906
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 70,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722012.1768675
+  },
+  "Mahayahay": {
+    "name": "Mahayahay",
+    "distance": 88.3,
+    "coordinates": [
+      10.6461564,
+      124.8216183
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722013.1778984
+  },
+  "Manlilinao": {
+    "name": "Manlilinao",
+    "distance": 37.94,
+    "coordinates": [
+      11.1057599,
+      124.4997047
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722014.182868
+  },
+  "Margen": {
+    "name": "Margen",
+    "distance": 3.09,
+    "coordinates": [
+      11.09568,
+      124.73797
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722015.1841657
+  },
+  "Mas-in": {
+    "name": "Mas-in",
+    "distance": 34.79,
+    "coordinates": [
+      11.0628605,
+      124.5153276
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722016.1854866
+  },
+  "Matica-a": {
+    "name": "Matica-a",
+    "distance": 29.25,
+    "coordinates": [
+      11.134841,
+      124.5525772
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722017.1871653
+  },
+  "Milagro": {
+    "name": "Milagro",
+    "distance": 11.3,
+    "coordinates": [
+      11.0896464,
+      124.6486463
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 70,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722018.1887305
+  },
+  "Monterico": {
+    "name": "Monterico",
+    "distance": 36.42,
+    "coordinates": [
+      11.1447465,
+      124.5159726
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722019.1902862
+  },
+  "Nasunogan": {
+    "name": "Nasunogan",
+    "distance": 24.25,
+    "coordinates": [
+      11.0645678,
+      124.5724091
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722020.1913528
+  },
+  "Naungan": {
+    "name": "Naungan",
+    "distance": 10.48,
+    "coordinates": [
+      11.129679999999999,
+      124.77197000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 70,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722021.193293
+  },
+  "Nueva Sociedad": {
+    "name": "Nueva Sociedad",
+    "distance": 4.14,
+    "coordinates": [
+      11.100679999999999,
+      124.74297
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722022.1944075
+  },
+  "Nueva Vista": {
+    "name": "Nueva Vista",
+    "distance": 13.99,
+    "coordinates": [
+      11.1138751,
+      124.6378966
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 70,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722023.19602
+  },
+  "Patag": {
+    "name": "Patag",
+    "distance": 17.18,
+    "coordinates": [
+      11.0224752,
+      124.629345
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722024.1977348
+  },
+  "Punta": {
+    "name": "Punta",
+    "distance": 16.92,
+    "coordinates": [
+      11.0224,
+      124.6312
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722025.1990185
+  },
+  "Quezon, Jr.": {
+    "name": "Quezon, Jr.",
+    "distance": 16.8,
+    "coordinates": [
+      11.0228,
+      124.6318
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722026.2006052
+  },
+  "Rufina M. Tan": {
+    "name": "Rufina M. Tan",
+    "distance": 16.68,
+    "coordinates": [
+      11.0232,
+      124.6324
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722027.2021866
+  },
+  "Sabang Bao": {
+    "name": "Sabang Bao",
+    "distance": 30.55,
+    "coordinates": [
+      11.0723061,
+      124.5371575
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722028.2033365
+  },
+  "Salvacion": {
+    "name": "Salvacion",
+    "distance": 22.37,
+    "coordinates": [
+      11.0594354,
+      124.5838291
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722029.2046158
+  },
+  "San Antonio": {
+    "name": "San Antonio",
+    "distance": 18.93,
+    "coordinates": [
+      11.16568,
+      124.80797
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722030.2059486
+  },
+  "San Isidro": {
+    "name": "San Isidro",
+    "distance": 22.09,
+    "coordinates": [
+      11.0261925,
+      124.5951382
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722031.2079377
+  },
+  "San Jose": {
+    "name": "San Jose",
+    "distance": 27.66,
+    "coordinates": [
+      11.0992162,
+      124.5536707
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722032.2088995
+  },
+  "San Juan": {
+    "name": "San Juan",
+    "distance": 31.71,
+    "coordinates": [
+      11.0122263,
+      124.5437015
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722033.2101169
+  },
+  "San Pablo (Simangan)": {
+    "name": "San Pablo (Simangan)",
+    "distance": 19.66,
+    "coordinates": [
+      11.168679999999998,
+      124.81097
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722034.2111228
+  },
+  "San Vicente": {
+    "name": "San Vicente",
+    "distance": 33.84,
+    "coordinates": [
+      11.051531,
+      124.5216953
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 85,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722035.2126143
+  },
+  "Santo Niño": {
+    "name": "Santo Niño",
+    "distance": 0.81,
+    "coordinates": [
+      11.084679999999999,
+      124.72697000000001
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722036.2137299
+  },
+  "Sumangga": {
+    "name": "Sumangga",
+    "distance": 17.94,
+    "coordinates": [
+      11.0067921,
+      124.6354134
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 55,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722037.2149723
+  },
+  "Tambulilid": {
+    "name": "Tambulilid",
+    "distance": 24.01,
+    "coordinates": [
+      11.0231637,
+      124.5846183
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 80,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722038.2161446
+  },
+  "Tongonan": {
+    "name": "Tongonan",
+    "distance": 16.55,
+    "coordinates": [
+      11.0236,
+      124.633
+    ],
+    "classification": "urban",
+    "coastal": true,
+    "suggestedFee": 65,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722039.2175016
+  },
+  "Valencia": {
+    "name": "Valencia",
+    "distance": 23.5,
+    "coordinates": [
+      11.1067683,
+      124.5781481
+    ],
+    "classification": "urban",
+    "coastal": false,
+    "suggestedFee": 60,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722040.218905
+  },
+  "Alegria": {
+    "name": "Alegria",
+    "distance": 16.31,
+    "coordinates": [
+      11.0244,
+      124.6342
+    ],
+    "classification": "rural",
+    "coastal": false,
+    "suggestedFee": 75,
+    "isReference": false,
+    "duration": 0,
+    "calculatedAt": 1759722041.2203639
+  }
+}

@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriCart - CALCOA Smart Agriculture Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2f7a3e;
+            --light-green: #3c9a4e;
+            --dark-green: #1b370c;
+            --cream: #f5f1e8;
+            --light-cream: #faf8f3;
+            --accent-green: #7fc88f;
+            --text-dark: #2c3e2d;
+            --text-gray: #6a7b6e;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background: var(--light-cream);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-images {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .logo-images img {
+            height: 50px;
+            width: auto;
+            background: white;
+            padding: 0.25rem;
+            border-radius: 8px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 2rem;
+            scroll-margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Hero/Home Section */
+        #home {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light-cream) 100%);
+            padding-top: 150px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark-green);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text .highlight {
+            color: var(--primary-green);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .coop-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+        }
+
+        .coop-info h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .coop-details {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .coop-detail {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .coop-detail i {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-top: 0.25rem;
+        }
+
+        .coop-detail p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .feature-card h4 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-card h4 i {
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Customer & Rider Sections */
+        #customer, #rider {
+            background: white;
+        }
+
+        #rider {
+            background: var(--cream);
+        }
+
+        .app-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .app-phone {
+            position: relative;
+            text-align: center;
+        }
+
+        .phone-mockup {
+            max-width: 350px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            aspect-ratio: 9/19.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .app-details {
+            padding: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(47, 122, 62, 0.3);
+            margin: 2rem 0;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(47, 122, 62, 0.4);
+        }
+
+        .download-btn i {
+            font-size: 1.5rem;
+        }
+
+        .features-list {
+            background: var(--light-cream);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .features-list h4 {
+            color: var(--dark-green);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h5 {
+            color: var(--dark-green);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .schedule-box {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(47, 122, 62, 0.2);
+        }
+
+        .schedule-box h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .schedule-box i {
+            font-size: 1.8rem;
+        }
+
+        .schedule-times {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .schedule-time {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .schedule-time strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        #contact .section-header h2,
+        #contact .section-header p {
+            color: white;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-green);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .app-showcase {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 1.5rem;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text h1 {
+                font-size: 1.25rem;
+            }
+
+            .logo-images img {
+                height: 40px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Indicator Badge */
+        .indicator-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-green);
+            color: var(--dark-green);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .indicator-badge i {
+            font-size: 1rem;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeSlide 1s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0.6;
+                transform: scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .slideshow-dots {
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: white;
+            width: 30px;
+            border-radius: 10px;
+        }
+
+        .dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Download buttons container */
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .download-buttons {
+                flex-direction: column;
+            }
+            
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-images">
+                    <img src="calcoa_logo.png" alt="CALCOA Logo">
+                    <img src="agricart_logo.png" alt="AgriCart Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>AgriCart</h1>
+                    <p>CALCOA Smart Agriculture Platform</p>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#customer">Customer</a></li>
+                    <li><a href="#rider">Rider</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Connecting <span class="highlight">Farmers</span> to <span class="highlight">Consumers</span></h1>
+                    <p>AgriCart is a revolutionary smart agriculture platform designed to bridge the gap between local farmers and consumers in Ormoc City, providing fresh, quality agricultural products directly from farm to table.</p>
+                    
+                    <div class="coop-info">
+                        <h3>About Cabintan Livelihood Community Agriculture – Cooperative (CALCOA)</h3>
+                        <div class="coop-details">
+                            <div class="coop-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><strong>Location:</strong> Purok 3, Barangay Cabintan, Ormoc City</p>
+                            </div>
+                            <div class="coop-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                <p><strong>Established:</strong> 2005</p>
+                            </div>
+                            <div class="coop-detail">
+                                <i class="fas fa-users"></i>
+                                <p><strong>Members:</strong> 50 active farmer members growing quality vegetables</p>
+                            </div>
+                            <div class="coop-detail">
+                                <i class="fas fa-leaf"></i>
+                                <p><strong>Activities:</strong> Vegetable production under protective and open-field systems, agricultural supply distribution, and retail services for institutional buyers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4><i class="fas fa-bullseye"></i> Our Purpose</h4>
+                        <p>AgriCart addresses the critical challenges faced by farmers in accessing wider markets and consumers in obtaining fresh, locally-grown produce. By leveraging modern technology, we eliminate middlemen, reduce post-harvest losses, ensure fair pricing for farmers, and provide consumers with direct access to farm-fresh vegetables. Our platform empowers the agricultural community while promoting sustainable farming practices and supporting local food security in Ormoc City.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4><i class="fas fa-seedling"></i> Smart Agriculture Innovation</h4>
+                        <p>CALCOA's innovative farming methods align with emerging smart agriculture trends, integrating technology-driven solutions to enhance productivity and sustainability. Through AgriCart, we're bringing these innovations directly to consumers, creating a transparent and efficient supply chain that benefits both farmers and the community.</p>
+                    </div>
+                </div>
+
+                <div class="hero-image fade-in">
+                    <!-- Image Slideshow -->
+                    <div class="slideshow-container">
+                        <div class="slide active">
+                            <img src="static_image1.jpg" alt="CALCOA Fresh Vegetables">
+                        </div>
+                        <div class="slide">
+                            <img src="static_image2.jpg" alt="CALCOA Farm Activities">
+                        </div>
+                        <div class="slide">
+                            <img src="static_image3.jpg" alt="CALCOA Community">
+                        </div>
+                        
+                        <!-- Slideshow indicators -->
+                        <div class="slideshow-dots">
+                            <span class="dot active" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" style="margin-top: 2rem;">
+                        <h4><i class="fas fa-heart"></i> Impact on the Community</h4>
+                        <p>By supporting local farmers through AgriCart, consumers contribute to:</p>
+                        <ul style="margin-top: 1rem; margin-left: 1.5rem; color: var(--text-gray); line-height: 1.8;">
+                            <li>Sustainable livelihoods for 50 farming families</li>
+                            <li>Reduced food miles and environmental impact</li>
+                            <li>Access to fresher, more nutritious produce</li>
+                            <li>Fair prices for both farmers and consumers</li>
+                            <li>Strengthened local food security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Section -->
+    <section id="customer">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="indicator-badge">
+                    <i class="fas fa-user"></i>
+                    For Customers
+                </span>
+                <h2>Customer App</h2>
+                <p>Order fresh vegetables directly from CALCOA farmers with our easy-to-use mobile application</p>
+            </div>
+
+            <div class="app-showcase">
+                <div class="app-details">
+                    <h3 style="font-size: 2rem; color: var(--dark-green); margin-bottom: 1rem;">Shop Farm-Fresh Produce</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem;">Browse, order, and receive fresh vegetables from local farmers right at your doorstep or pickup location.</p>
+
+                    <div class="download-buttons">
+                        <a href="https://drive.google.com/file/d/1e60s_5WNE5tZHxQGTQVEPHlCaMWFGfYP/view?usp=sharing" class="download-btn">
+                            <i class="fab fa-android"></i>
+                            Download for Android
+                        </a>
+                    </div>
+
+                    <div class="schedule-box">
+                        <h4><i class="fas fa-calendar-check"></i> Ordering Schedule</h4>
+                        <p>Plan your orders according to our weekly schedule:</p>
+                        <div class="schedule-times">
+                            <div class="schedule-time">
+                                <strong><i class="fas fa-check-circle"></i> Ordering Period</strong>
+                                <p>Monday 12:00 AM - Thursday 8:00 PM</p>
+                                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Place your orders during this time for fresh delivery!</p>
+                            </div>
+                            <div class="schedule-time">
+                                <strong><i class="fas fa-ban"></i> Cut-off Period</strong>
+                                <p>Thursday 8:01 PM - Sunday 11:59 PM</p>
+                                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Orders are being processed and prepared for delivery</p>
+                            </div>
+                            <div class="schedule-time">
+                                <strong><i class="fas fa-truck"></i> Delivery</strong>
+                                <p>Fresh vegetables delivered weekly</p>
+                                <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem;">Choose between home delivery or pickup options</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <h4><i class="fas fa-star"></i> App Features</h4>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Easy Product Browsing</h5>
+                                <p>Browse through a wide selection of fresh vegetables with detailed descriptions, prices, and availability. Filter by category and see real-time stock updates.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Smart Order Scheduling</h5>
+                                <p>Automatic validation ensures you only place orders during open periods (Monday 12:00 AM - Thursday 8:00 PM). Get notified of cut-off times and next ordering periods.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Flexible Delivery Options</h5>
+                                <p>Choose between home delivery or pickup at designated locations. Provide detailed delivery instructions and select convenient time windows.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>GCash Payment Integration</h5>
+                                <p>Secure and convenient payment through GCash. Upload payment receipts directly in the app. Track payment status and receive instant confirmations.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Real-Time Order Tracking</h5>
+                                <p>Monitor your order status from placement to delivery. Receive notifications at each stage: pending, confirmed, processing, out for delivery, and delivered.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Order Rating System</h5>
+                                <p>Rate your completed orders with a 5-star system. Provide feedback on product quality with photos and videos (up to 5 files, 50MB total). For delivery orders, rate the delivery rider's service. For pickup orders, share your pickup experience.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Direct Chat with Staff</h5>
+                                <p>Communicate directly with CALCOA staff for questions, concerns, or special requests. Get instant responses and support throughout your ordering journey.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Order History & Management</h5>
+                                <p>View your complete order history with detailed records. Cancel orders before the cut-off period (Monday-Thursday before 1:00 PM). Re-order your favorite items with one tap.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Smart Notifications</h5>
+                                <p>Receive timely updates about order confirmations, status changes, delivery schedules, and special promotions. Stay informed every step of the way.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Profile Management</h5>
+                                <p>Manage your personal information, delivery addresses, and preferences. View your total orders and spending statistics. Secure account with email verification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-phone">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="customer_login_image.png" alt="Customer App Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
+                        <i class="fas fa-mobile-alt"></i> Available for Android devices
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rider Section -->
+    <section id="rider">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="indicator-badge">
+                    <i class="fas fa-motorcycle"></i>
+                    For Riders
+                </span>
+                <h2>Delivery Rider App</h2>
+                <p>Efficient delivery management system for CALCOA delivery partners</p>
+            </div>
+
+            <div class="app-showcase">
+                <div class="app-phone">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="rider_login_image.png" alt="Rider App Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
+                        <i class="fas fa-mobile-alt"></i> Available for Android devices
+                    </p>
+                </div>
+
+                <div class="app-details">
+                    <h3 style="font-size: 2rem; color: var(--dark-green); margin-bottom: 1rem;">Streamlined Delivery Operations</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem;">Manage deliveries efficiently with our dedicated rider application designed for seamless coordination.</p>
+
+                    <div class="download-buttons">
+                        <a href="https://drive.google.com/file/d/1Wsmwc5I4NPSclKdo_LNx8MwJvnP69Wos/view?usp=sharing" class="download-btn">
+                            <i class="fab fa-android"></i>
+                            Download for Android
+                        </a>
+                    </div>
+
+                    <div class="schedule-box">
+                        <h4><i class="fas fa-user-shield"></i> Rider Roles & Responsibilities</h4>
+                        <div class="schedule-times">
+                            <div class="schedule-time">
+                                <strong><i class="fas fa-check-circle"></i> Order Management</strong>
+                                <p>View and accept orders assigned by CALCOA staff. Track all assigned deliveries in real-time.</p>
+                            </div>
+                            <div class="schedule-time">
+                                <strong><i class="fas fa-route"></i> Delivery Execution</strong>
+                                <p>Navigate to pickup and delivery locations. Update order status at each stage of delivery.</p>
+                            </div>
+                            <div class="schedule-time">
+                                <strong><i class="fas fa-headset"></i> Customer Communication</strong>
+                                <p>Maintain professional communication with customers. Ensure timely and quality service delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <h4><i class="fas fa-star"></i> App Features</h4>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Unified Order Interface</h5>
+                                <p>Single dashboard displaying all orders - both out for delivery and your assigned orders. Filter orders by status (All, Out for Delivery, Assigned, Picked Up, In Transit). Real-time updates when staff assigns new orders.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Direct Order Assignment</h5>
+                                <p>No acceptance step required - start working immediately when staff assigns orders to you. Orders appear instantly when staff marks them as "Out for Delivery" and assigns them to you.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Status-Based Actions</h5>
+                                <p><strong>Assigned Status:</strong> "Mark as Picked Up" button to confirm product collection.<br>
+                                <strong>Picked Up Status:</strong> "Start Delivery" button when heading to customer.<br>
+                                <strong>In Transit Status:</strong> "Complete Delivery" button upon successful delivery.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-sync"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Real-Time Synchronization</h5>
+                                <p>All status updates sync instantly between rider app and staff dashboard. Staff can monitor your delivery progress in real-time. Automatic updates ensure everyone stays informed.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Comprehensive Order Details</h5>
+                                <p>View complete order information including customer name, phone number, and delivery address. See order items, quantities, and total amount. Access delivery instructions and special notes from customers.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Location Information</h5>
+                                <p>Access detailed customer addresses with sitio, barangay, city, and province information. View landmarks and special delivery instructions. Optional map links for easy navigation.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Smart Order Filtering</h5>
+                                <p>Filter orders by status to focus on what matters. View "Out for Delivery" orders available for acceptance. Track your "Assigned", "Picked Up", and "In Transit" orders separately.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Delivery Dashboard</h5>
+                                <p>View your delivery statistics and performance metrics. Track completed deliveries and earnings. Access quick actions for common tasks.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Instant Notifications</h5>
+                                <p>Receive push notifications for new order assignments. Get alerts for important updates from staff. Stay connected throughout your delivery shift.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Profile & Settings</h5>
+                                <p>Manage your rider profile and contact information. Update your availability status. View your delivery history and performance ratings.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Secure Authentication</h5>
+                                <p>Secure login system for authorized riders only. Staff-managed rider accounts ensure platform security. Protected access to customer information.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Optimized for Mobile</h5>
+                                <p>Designed specifically for on-the-go delivery operations. Works smoothly on various Android devices. Minimal data usage for efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--light-green), var(--primary-green)); color: white;">
+                        <h4 style="color: white;"><i class="fas fa-route"></i> Delivery Workflow</h4>
+                        <ol style="margin-left: 1.5rem; line-height: 2; margin-top: 1rem;">
+                            <li><strong>Order Assignment:</strong> Staff assigns order to you → Status: "Assigned"</li>
+                            <li><strong>Product Pickup:</strong> Collect products from CALCOA → Tap "Mark as Picked Up"</li>
+                            <li><strong>Start Delivery:</strong> Head to customer location → Tap "Start Delivery"</li>
+                            <li><strong>Complete Delivery:</strong> Deliver to customer → Tap "Complete Delivery"</li>
+                            <li><strong>Success:</strong> Order marked as delivered, customer can rate your service</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Get In Touch</h2>
+                <p>Have questions? We're here to help! Contact CALCOA through any of these channels.</p>
+            </div>
+
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:09502588355">0950 258 8355</a>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Call us for immediate assistance</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:agricartcalcoa@gmail.com">agricartcalcoa@gmail.com</a>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Send us your inquiries and feedback</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p style="font-size: 1.1rem; margin-top: 1rem;">Purok 3, Barangay Cabintan<br>Ormoc City</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Visit our cooperative office</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">
+                    <i class="fas fa-clock"></i> Operating Hours
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    <strong>Order Placement:</strong> Monday 12:00 AM - Thursday 8:00 PM<br>
+                    <strong>Customer Support:</strong> Monday - Friday, 8:00 AM - 5:00 PM<br>
+                    <strong>Delivery Days:</strong> As scheduled based on your order
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AgriCart - CALCOA Cooperative. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Empowering farmers, serving communities, building a sustainable future.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Customer App Download - Now using direct Google Drive link (function removed)
+
+        // Slideshow functionality
+        let slideIndex = 0;
+        let slideInterval;
+
+        function showSlides() {
+            const slides = document.getElementsByClassName('slide');
+            const dots = document.getElementsByClassName('dot');
+            
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            // Remove active class from all dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            // Increment slide index
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // Show current slide and dot
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].classList.add('active');
+            }
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+        }
+
+        function currentSlide(n) {
+            // Clear the automatic slideshow
+            clearInterval(slideInterval);
+            
+            const slides = document.getElementsByClassName('slide');
+            const dots = document.getElementsByClassName('dot');
+            
+            slideIndex = n;
+            
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            // Remove active class from all dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            // Show selected slide
+            if (slides[n - 1]) {
+                slides[n - 1].classList.add('active');
+            }
+            if (dots[n - 1]) {
+                dots[n - 1].classList.add('active');
+            }
+            
+            // Restart automatic slideshow
+            slideInterval = setInterval(showSlides, 5000);
+        }
+
+        // Start slideshow when page loads
+        window.addEventListener('load', function() {
+            slideInterval = setInterval(showSlides, 5000); // Change slide every 5 seconds
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling and active nav highlighting
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Close mobile menu if open
+                const nav = document.getElementById('mainNav');
+                nav.classList.remove('active');
+                
+                // Scroll to section
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Update active link
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-item, .feature-card, .contact-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+

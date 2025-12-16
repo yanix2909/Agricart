@@ -1,0 +1,8 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/send-fcm"
+  to = "/.netlify/functions/send-fcm"
+  status = 200
+

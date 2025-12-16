@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "541840919230",
+    "firebase_url": "https://agricart-53501-default-rtdb.firebaseio.com",
+    "project_id": "agricart-53501",
+    "storage_bucket": "agricart-53501.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541840919230:android:cc6ee71eb756c470092cef",
+        "android_client_info": {
+          "package_name": "com.agricart.customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABE4VNQ7JDXQGycTXNz_djoMHSD42KG0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

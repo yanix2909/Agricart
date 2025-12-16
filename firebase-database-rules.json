@@ -1,0 +1,216 @@
+{
+  "rules": {
+    "users": {
+      ".read": true,
+      ".write": true,
+      "$uid": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "customers": {
+      ".indexOn": ["username", "email"],
+      ".read": true,
+      ".write": true,
+      "$uid": {
+        ".read": true,
+        ".write": true,
+        "fcmToken": {
+          ".read": true,
+          ".write": true
+        },
+        "fcmTokenUpdatedAt": {
+          ".read": true,
+        ".write": true
+        }
+      }
+    },
+    "verifications": {
+      ".read": true,
+      ".write": true,
+      "customers": {
+        "$uid": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    },
+    "orders": {
+      ".indexOn": ["customerId", "status", "createdAt", "riderId"],
+      ".read": true,
+      ".write": true,
+      "$orderId": {
+        ".read": true,
+        ".write": true,
+        "riderId": {
+          ".write": true
+        },
+        "riderName": {
+          ".write": true
+        },
+        "assignedAt": {
+          ".write": true
+        },
+        "outForDeliveryAt": {
+          ".write": true
+        }
+      }
+    },
+    "delivery_orders": {
+      ".indexOn": ["riderId", "status"],
+      ".read": true,
+      ".write": true,
+      "$orderId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "products": {
+      ".read": true,
+      ".write": true
+    },
+    "inventory": {
+      ".read": true,
+      ".write": true
+    },
+    "farmers": {
+      ".read": true,
+      ".write": true,
+      "$farmerId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "staff": {
+      ".read": true,
+      ".write": true,
+      "$staffId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "admins": {
+      ".read": true,
+      ".write": true,
+      "$adminId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "riders": {
+      ".indexOn": ["email"],
+      ".read": true,
+      ".write": true,
+      "$riderId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "notifications": {
+      ".read": true,
+      ".write": true,
+      "$notificationId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "orderAssignments": {
+      ".read": true,
+      ".write": true,
+      "$orderId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "reservations": {
+      ".read": true,
+      ".write": true,
+      "$productId": {
+        "$orderId": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    },
+    "rejected": {
+      ".read": true,
+      ".write": true,
+      "customers": {
+        ".read": true,
+        ".write": true
+      },
+      "orders": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "sales": {
+      ".read": true,
+      ".write": true,
+      "$saleId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "systemData": {
+      ".read": true,
+      ".write": true,
+      "pickupSelected": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "qr_codes": {
+      ".read": false,
+      ".write": false
+    },
+    "chatMessages": {
+      ".read": true,
+      ".write": true,
+      "$messageId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "conversations": {
+      ".read": true,
+      ".write": true,
+      "$conversationId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "customerMessages": {
+      ".read": true,
+      ".write": true,
+      "$customerId": {
+        ".read": true,
+        ".write": true,
+        "$messageId": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    },
+    "customerNotifications": {
+      ".read": true,
+      ".write": true,
+      "$customerId": {
+        ".read": true,
+        ".write": true,
+        "$notificationId": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    },
+    "order_status_updates": {
+      ".read": true,
+      ".write": true,
+      "$orderId": {
+        ".read": true,
+        ".write": true
+      }
+    }
+  }
+}
