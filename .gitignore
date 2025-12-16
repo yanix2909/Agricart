@@ -185,7 +185,8 @@ supabase/.temp/
 
 # Firebase service account keys (should never be committed)
 *service-account*.json
-!service-account-minified.json
+*firebase-adminsdk*.json
+*service-account-minified.json
 
 # Backup files
 *.bak
